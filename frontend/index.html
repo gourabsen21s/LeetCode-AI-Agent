@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Agent - LeetCode Solver</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <h1>LeetCode AI Agent</h1>
+        <form id="login-form">
+            <label for="username">LeetCode Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">LeetCode Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Start Solving Problems</button>
+        </form>
+
+        <div id="status"></div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
