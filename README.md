@@ -1,109 +1,146 @@
-```markdown
-# AI Agent for LeetCode Solver
+# 🚀 AI Agent - LeetCode Solver 🤖
 
-This project is an AI-powered agent that automates the process of solving problems on LeetCode. The agent logs in to a user's LeetCode account, navigates to problems, and submits solutions sequentially. The process is displayed live to the user via a web interface. 
+This project allows you to automate solving LeetCode problems using a custom AI agent. You can pass your LeetCode cookies, and the AI will start solving problems one by one automatically. The process is visible to the user in real-time!
 
-## Features
-- User can input their LeetCode credentials (username and password) on the website.
-- Once credentials are provided, the AI agent will:
-  - Log in to LeetCode.
-  - Navigate to problem-solving sections.
-  - Automatically attempt to solve problems sequentially.
-  - Submit solutions and check if test cases pass.
-- Real-time updates and status messages are displayed to the user during the entire process.
-- Built using Flask for the backend, Node.js as the server, and Selenium for browser automation.
+## ⚙️ Technologies Used
 
-## Tech Stack
-- **Frontend**: HTML, CSS, JavaScript (Axios for API calls)
-- **Backend**: Python (Flask, Selenium)
-- **Server**: Node.js (Express.js)
-- **Web Automation**: Selenium, WebDriver, ChromeDriver, PyAutoGUI (optional for some tasks)
-
-## Setup and Installation
-
-### Prerequisites
-Ensure the following are installed on your machine:
-- **Python 3.x**
-- **Node.js** and **npm**
-- **Chrome WebDriver** (automatically installed with `webdriver_manager`)
-
-### Backend Setup (Flask + Selenium)
-
-1. Clone this repository to your local machine:
-   ```bash
-   git clone <repo-url>
-   cd <repo-folder>
-   ```
-
-2. Create a virtual environment and activate it:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # For Mac/Linux
-   venv\Scripts\activate     # For Windows
-   ```
-
-3. Install the required Python packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Run the Flask backend:
-   ```bash
-   python app.py
-   ```
-
-   This will start the Flask server at `http://localhost:1000/`.
-
-### Frontend Setup (HTML + JavaScript)
-
-1. Navigate to the frontend folder:
-   ```bash
-   cd frontend
-   ```
-
-2. Open the `index.html` file in your web browser.
-
-### Server Setup (Node.js)
-
-1. Install the required Node.js dependencies:
-   ```bash
-   npm install
-   ```
-
-2. Run the server:
-   ```bash
-   node server.js
-   ```
-
-   The Node.js server will run at `http://localhost:3000/` and will communicate with the Flask API.
-
-## How It Works
-
-1. When the user visits the web interface, they will be prompted to input their LeetCode credentials (username and password).
-2. Upon submission, the credentials are sent to the Node.js server using Axios.
-3. The Node.js server forwards the credentials to the Flask backend via an API call.
-4. The Flask backend uses Selenium to log into LeetCode, navigate the site, and solve problems.
-5. During the automation process, the frontend displays the current status of the operation in real time.
-6. The Flask backend interacts with the browser, and the AI agent solves problems sequentially.
-
-## Known Issues
-- CAPTCHA challenges or verification screens might cause issues with the automation process.
-- The system may be fragile if the layout or DOM structure of LeetCode changes, as PyAutoGUI relies on specific coordinates.
-
-## Future Improvements
-- Adding CAPTCHA-solving mechanisms or AI-based verification.
-- Making the system more robust against UI changes.
-- Storing progress and data in a database for better tracking of solved problems.
-
-## License
-This project is currently **under development**. No license has been defined yet.
+- **Frontend**: HTML, CSS, JavaScript (Axios)
+- **Backend**: Flask (Python)
+- **Automation**: Selenium WebDriver
+- **API**: Node.js (Express.js)
+- **Others**: WebDriver Manager, CORS
 
 ---
 
-If you encounter any issues or would like to contribute to the project, feel free to submit an issue or pull request.
+## 📦 Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/leetcode-ai-agent.git
+cd leetcode-ai-agent
 ```
 
-### Notes:
-- This README includes instructions for setup and installation.
-- It clearly explains the project's features, tech stack, setup process, and limitations.
-- The **"Under Development"** notice is mentioned under the license section.
+### 2. Backend Setup (Python with Flask)
+
+#### Requirements:
+- Python 3.x
+- Install dependencies with:
+
+```bash
+pip install -r requirements.txt
+```
+
+#### Running Flask Server:
+
+```bash
+python app.py
+```
+
+Your Flask server will start running on `http://localhost:1000`.
+
+### 3. Frontend Setup (Node.js + Express)
+
+#### Requirements:
+- Node.js & npm
+
+#### Install dependencies:
+
+```bash
+npm install
+```
+
+#### Running Node.js Server:
+
+```bash
+node server.js
+```
+
+Your Node.js server will be running on `http://localhost:3000`.
+
+---
+
+## 🖥️ How to Use
+
+1. **Open the Web Interface**:
+   - Navigate to `http://localhost:3000` in your browser.
+
+2. **Log in to LeetCode**:
+   - Open your browser's Developer Tools (`F12` or `Ctrl+Shift+I`).
+   - Go to the **Application** tab and find cookies for `leetcode.com`.
+   - Copy the entire cookie JSON data.
+
+3. **Submit Cookie JSON**:
+   - Paste the copied cookie JSON into the input field labeled **LeetCode Cookies (JSON)** on the web page.
+   - Click **Start Solving Problems** to initiate the AI automation.
+
+4. **Automation Starts**:
+   - The AI agent will start solving problems on LeetCode.
+   - You can view the progress in real-time on the same page.
+
+---
+
+## 💡 Project Flow
+
+1. **Frontend**:
+   - Collects LeetCode cookies (in JSON format) from the user.
+   - Sends the cookies to the backend (`server.js`).
+
+2. **Node.js Backend**:
+   - Receives the cookies from the frontend and forwards them to the Flask server (`app.py`).
+   
+3. **Flask Backend**:
+   - Uses Selenium WebDriver to automate the login process on LeetCode using the provided cookies.
+   - Starts solving problems on LeetCode one by one, submitting solutions and checking test cases.
+
+4. **Real-time Updates**:
+   - The user can view the status of the automation in real-time on the frontend page.
+
+---
+
+## 📜 Project Structure
+
+```
+/leetcode-ai-agent
+│
+├── /frontend
+│   ├── index.html        # HTML front-end
+│   ├── app.js            # JavaScript for handling form submission and API requests
+│   └── styles.css        # CSS for styling the page
+│
+├── /backend
+│   ├── app.py            # Flask backend for handling automation
+│   └── requirements.txt  # Python dependencies
+│
+├── /nodejs-server
+│   ├── server.js         # Express.js server for relaying requests to Flask
+└── README.md             # Project documentation
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+If you encounter issues, make sure:
+- The backend (`app.py`) is running on port 1000.
+- The frontend (`server.js`) is running on port 3000.
+- Cookies are correctly copied in JSON format and provided via the web interface.
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repository, create an issue, or submit a pull request if you'd like to contribute to the project!
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+👨‍💻 Happy coding and automating! 🎉
+```
+
+---
