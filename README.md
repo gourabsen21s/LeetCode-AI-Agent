@@ -17,7 +17,7 @@ This project allows you to automate solving LeetCode problems using a custom AI 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/leetcode-ai-agent.git
+git clone https://github.com/gourabsen21s/leetcode-ai-agent.git
 cd leetcode-ai-agent
 ```
 
